@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Like Dogs?</string>
+    <string name="username">Enter your name</string>
+    <string name="password">Password</string>
+    <string name="loginButton">Log in</string>
+    <string name="empty_string"></string>
+    <string name="welcome">Welcome View</string>
+    <string name="question">Do you like dogs?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+</resources>
