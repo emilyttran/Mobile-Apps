@@ -17,7 +17,7 @@ public class Movie {
 
     public String title;
     public int episodeNum;
-    public String mainChar;
+    public String actors;
     public String description;
     public String poster;
     public String url;
@@ -42,7 +42,7 @@ public class Movie {
 
                 movie.title = movies.getJSONObject(i).getString("title");
                 movie.episodeNum = movies.getJSONObject(i).getInt("episode_number");
-                movie.mainChar = movies.getJSONObject(i).getString("main_character");
+                movie.actors = movies.getJSONObject(i).getString("main_characters");
                 movie.description = movies.getJSONObject(i).getString("description");
                 movie.poster = movies.getJSONObject(i).getString("poster");
                 movie.url = movies.getJSONObject(i).getString("url");
