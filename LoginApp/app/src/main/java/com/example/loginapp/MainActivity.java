@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
 
-        if(resultCode == 1){
+        if(requestCode == 1){
             if(resultCode == RESULT_OK){  // if second activity is sending data
                 boolean yesBox = data.getBooleanExtra("yes", false);
                 boolean noBox = data.getBooleanExtra("no",false);

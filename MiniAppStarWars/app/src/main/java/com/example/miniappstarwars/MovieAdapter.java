@@ -81,7 +81,6 @@ public class MovieAdapter extends BaseAdapter{
         titleTextView.setText(movie.title);
         descriptionTextView.setText(movie.description);
         actorsTextView.setText(movie.actors);
-        seenTextView.setText("hi");
         Picasso.with(mContext).load(movie.poster).into(posterImageView);
         return view;
 
