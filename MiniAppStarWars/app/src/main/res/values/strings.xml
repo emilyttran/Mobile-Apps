@@ -4,4 +4,5 @@
     <string name="radio2">Want to see</string>
     <string name="radio3">Do not like</string>
     <string name="submit">SUBMIT</string>
+    <string name="hasSeen">Has Seen?</string>
 </resources>

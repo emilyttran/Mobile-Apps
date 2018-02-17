@@ -31,6 +31,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         String titleString = this.getIntent().getExtras().getString("title");
         String descriptionString = this.getIntent().getExtras().getString("description");
         String posterString = this.getIntent().getExtras().getString("poster");
+        final int position = this.getIntent().getExtras().getInt("position");
 
         // grab views
         TextView titleView = findViewById(R.id.titleView2);
@@ -52,8 +53,11 @@ public class MovieDetailActivity extends AppCompatActivity {
                 RadioGroup radioGroup = findViewById(R.id.radioGroup);
                 selectedRadio = radioGroup.getCheckedRadioButtonId();
 
+                // get selected radio
                 RadioButton radioView = findViewById(selectedRadio);
                 String radioText = (String) radioView.getText();
+
+                radioIntent.putExtra("position",position);
                 radioIntent.putExtra("radioString",radioText);
                 setResult(RESULT_OK, radioIntent);
                 finish();

@@ -21,6 +21,7 @@ public class Movie {
     public String description;
     public String poster;
     public String url;
+    public String hasSeen;
 
     // constructor that reads file and puts info into an ArrayList
     public static ArrayList<Movie> getMoviesFromFile(String filename, Context context){

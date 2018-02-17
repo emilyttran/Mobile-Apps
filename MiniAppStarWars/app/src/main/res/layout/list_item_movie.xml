@@ -41,6 +41,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="3dp"
             android:layout_below="@+id/title_view"
+            android:maxLines="3"
             android:text="TextView" />
 
         <TextView
@@ -63,6 +64,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="3dp"
             android:layout_below="@id/actors_view"
+            android:text="@string/hasSeen"
             />
 
     </RelativeLayout>

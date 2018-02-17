@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         seenView = findViewById(R.id.seen_view);
+
         mContext = this;
         movies = Movie.getMoviesFromFile("movies.json", mContext);
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 detailIntent.putExtra("title",selectedMovie.title);
                 detailIntent.putExtra("poster",selectedMovie.poster);
                 detailIntent.putExtra("description", selectedMovie.description);
+                detailIntent.putExtra("position",i);
 
                 startActivityForResult(detailIntent, 1);;
 
@@ -59,9 +61,10 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
 
                 String radioString = data.getStringExtra("radioString");
+                int position = data.getIntExtra("position",-1);
+                Movie clickedMovie = movies.get(position);
+                clickedMovie.hasSeen = radioString;
 
-                seenView = findViewById(R.id.seen_view);
-                seenView.setText(radioString);
             }
         }
     }
