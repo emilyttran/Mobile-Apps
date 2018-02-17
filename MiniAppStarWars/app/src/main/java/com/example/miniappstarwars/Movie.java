@@ -28,7 +28,7 @@ public class Movie {
         ArrayList<Movie> moviesList = new ArrayList<>();
         try {
             // load the json file into a String
-            String jsonString = loadJsonFromAsset("movies.JSON", context);
+            String jsonString = loadJsonFromAsset("movies.json", context);
 
             // get JSON object from string
             JSONObject json = new JSONObject(jsonString);

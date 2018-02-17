@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MiniAppStarWars</string>
-    <string name="hi">hi</string>
+    <string name="radio1">Already seen</string>
+    <string name="radio2">Want to see</string>
+    <string name="radio3">Do not like</string>
+    <string name="submit">SUBMIT</string>
 </resources>
