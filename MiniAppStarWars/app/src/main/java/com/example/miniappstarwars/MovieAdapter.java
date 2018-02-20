@@ -1,6 +1,7 @@
 package com.example.miniappstarwars;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,11 +82,24 @@ public class MovieAdapter extends BaseAdapter{
         titleTextView.setText(movie.title);
         descriptionTextView.setText(movie.description);
         actorsTextView.setText(movie.actors);
+
+        // set text of has seen based on text value
         seenTextView.setText(movie.hasSeen);
+        String hasSeenString = movie.hasSeen;
+        if(hasSeenString.equals("Already seen"))
+            seenTextView.setTextColor(Color.BLACK);
+        else if(hasSeenString.equals("Want to see"))
+            seenTextView.setTextColor(Color.BLUE);
+        else if(hasSeenString.equals("Do not like"))
+            seenTextView.setTextColor(Color.RED);
+        else
+            seenTextView.setTextColor(Color.LTGRAY);
+
         Picasso.with(mContext).load(movie.poster).into(posterImageView);
         return view;
 
     }
+
 
     private static class ViewHolder{
         public TextView titleTextView;

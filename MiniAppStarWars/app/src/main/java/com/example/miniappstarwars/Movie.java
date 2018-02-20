@@ -43,10 +43,14 @@ public class Movie {
 
                 movie.title = movies.getJSONObject(i).getString("title");
                 movie.episodeNum = movies.getJSONObject(i).getInt("episode_number");
-                movie.actors = movies.getJSONObject(i).getString("main_characters");
+                //movie.actors = movies.getJSONObject(i).getString("main_characters");
+                JSONArray actorJSON = movies.getJSONObject(i).getJSONArray("main_characters");
+
+                movie.actors = loadActors(actorJSON);
                 movie.description = movies.getJSONObject(i).getString("description");
                 movie.poster = movies.getJSONObject(i).getString("poster");
                 movie.url = movies.getJSONObject(i).getString("url");
+                movie.hasSeen = "Has Seen?";
 
                 // add the object to arraylist
                 moviesList.add(movie);
@@ -56,6 +60,21 @@ public class Movie {
         }
 
         return moviesList;
+    }
+
+    private static String loadActors(JSONArray actorJSON){
+        String display = null;
+        try {
+            display = actorJSON.getString(0);
+            for (int j = 1; j < 3; j++) {
+                display = display + ", " + actorJSON.getString(j);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return display;
     }
 
     // helper method that loads from any Json file and returns the json string

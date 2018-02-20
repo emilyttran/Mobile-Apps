@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 int position = data.getIntExtra("position",-1);
                 Movie clickedMovie = movies.get(position);
                 clickedMovie.hasSeen = radioString;
-
+                adapter.notifyDataSetChanged();
             }
         }
     }
