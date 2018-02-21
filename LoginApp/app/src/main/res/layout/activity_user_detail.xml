@@ -26,10 +26,11 @@
         android:id="@+id/yes_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/yes"
-        android:onClick="yesChecked"/>
+        android:layout_marginTop="20dp"
+        android:onClick="yesChecked"
+        android:text="@string/yes" />
 
     <CheckBox
         android:id="@+id/no_check"
@@ -47,6 +48,38 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/welcome_view"
         android:layout_below="@+id/welcome_view"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="27dp"
         android:text="@string/question" />
+
+    <Button
+        android:id="@+id/open_map_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="37dp"
+        android:onClick="openMaps"
+        android:text="Open Maps" />
+
+    <EditText
+        android:id="@+id/latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/no_check"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Latitude"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/latitude"
+        android:layout_below="@+id/latitude"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Longitude"
+        android:inputType="text" />
 </RelativeLayout>
