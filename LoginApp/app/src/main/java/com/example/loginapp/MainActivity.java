@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         // get the system service to display this notification
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        
+
         // notify and build the notification
         notificationManager.notify(1, builder.build());
 

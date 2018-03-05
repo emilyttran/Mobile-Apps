@@ -52,13 +52,16 @@ public class MovieDetailActivity extends AppCompatActivity {
 
                 RadioGroup radioGroup = findViewById(R.id.radioGroup);
                 selectedRadio = radioGroup.getCheckedRadioButtonId();
+                if(selectedRadio != -1) {
+                    // get selected radio
+                    RadioButton radioView = findViewById(selectedRadio);
+                    String radioText = (String) radioView.getText();
 
-                // get selected radio
-                RadioButton radioView = findViewById(selectedRadio);
-                String radioText = (String) radioView.getText();
-
-                radioIntent.putExtra("position",position);
-                radioIntent.putExtra("radioString",radioText);
+                    radioIntent.putExtra("position", position);
+                    radioIntent.putExtra("radioString", radioText);
+                } else {
+                    radioIntent.putExtra("position", -1);
+                }
                 setResult(RESULT_OK, radioIntent);
                 finish();
             }

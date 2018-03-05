@@ -59,12 +59,13 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,data);
         if(requestCode == 1){
             if(resultCode == RESULT_OK){
-
-                String radioString = data.getStringExtra("radioString");
                 int position = data.getIntExtra("position",-1);
-                Movie clickedMovie = movies.get(position);
-                clickedMovie.hasSeen = radioString;
-                adapter.notifyDataSetChanged();
+                if(position != -1){
+                    String radioString = data.getStringExtra("radioString");
+                    Movie clickedMovie = movies.get(position);
+                    clickedMovie.hasSeen = radioString;
+                    adapter.notifyDataSetChanged();
+                }
             }
         }
     }
