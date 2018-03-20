@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/diet_restriction_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="86dp"
+        android:text="@string/diet_restriction" />
+
+    <Spinner
+        android:id="@+id/diet_restriction_dropdown"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="76dp"
+        android:layout_marginTop="71dp" />
+
+    <TextView
+        android:id="@+id/serving_restriction_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/diet_restriction_tv"
+        android:layout_below="@+id/diet_restriction_dropdown"
+        android:layout_marginTop="57dp"
+        android:text="@string/serving_restriction" />
+
+    <Spinner
+        android:id="@+id/serving_restriction_dropdown"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/diet_restriction_dropdown"
+        android:layout_below="@+id/diet_restriction_dropdown"
+        android:layout_marginTop="44dp" />
+
+    <TextView
+        android:id="@+id/prep_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/serving_restriction_tv"
+        android:layout_below="@+id/serving_restriction_dropdown"
+        android:layout_marginTop="53dp"
+        android:text="@string/prep_time" />
+
+    <Spinner
+        android:id="@+id/prep_time_dropdown"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/serving_restriction_dropdown"
+        android:layout_below="@+id/serving_restriction_dropdown"
+        android:layout_marginTop="39dp" />
+
+    <Button
+        android:id="@+id/search_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prep_time_dropdown"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        android:text="@string/search" />
+
+</RelativeLayout>
