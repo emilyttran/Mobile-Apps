@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
     Context mContext;
@@ -20,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mContext = this;
-        ArrayList<Recipe> recipes = Recipe.getRecipesFromFile("recipes.JSON",this);
 
         startBtn = findViewById(R.id.start_button);
 
