@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -21,8 +22,8 @@ public class SearchActivity extends AppCompatActivity {
     ArrayList<String> dietList;
     ArrayList<Recipe> recipes;
     String diet, prep;
+    String selectedDiet, selectedServing, selectedPrep;
     int servings;
-    int[] servingsCategories;
     Button searchBtn;
     Context mContext;
     @Override
@@ -39,11 +40,11 @@ public class SearchActivity extends AppCompatActivity {
         recipes = Recipe.getRecipesFromFile("recipes.JSON",this);
 
         dietList = new ArrayList<>();
-        String[] servingList = {"Less than 4", "4-6", "7-9", "more than 10"};
-        String[] prepList = {"30 minutes or less", "less than 1 hour", "more than 1 hour"};
+        String[] servingList = {"", "Less than 4", "4-6", "7-9", "more than 10"};
+        String[] prepList = {"","30 minutes or less", "less than 1 hour", "more than 1 hour"};
 
-        servingsCategories = new int[4];
-
+        // define Spinner labels
+        dietList.add("");
         for(int i = 0; i < recipes.size(); i++) {
             Recipe recipe = recipes.get(i);
             diet = recipe.diet;
@@ -64,10 +65,51 @@ public class SearchActivity extends AppCompatActivity {
         servingDropdown.setAdapter(adapterServings);
         prepDropdown.setAdapter(adapterPrep);
 
+        dietDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedDiet = (String)adapterView.getItemAtPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        servingDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedServing = (String)adapterView.getItemAtPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        prepDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedPrep = (String)adapterView.getItemAtPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentResults = new Intent(mContext, ResultActivity.class);
+
+                intentResults.putExtra("selectedServing",selectedServing);
+                intentResults.putExtra("selectedDiet",selectedDiet);
+                intentResults.putExtra("selectedPrep",selectedPrep);
+
                 startActivity(intentResults);
                 // get values from spinner and put in intents to send
             }

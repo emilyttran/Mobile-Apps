@@ -8,6 +8,8 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by emily_000 on 3/20/2018.
@@ -21,6 +23,8 @@ public class Recipe {
     public int servings;
     public String prep;
     public String diet;
+    public String servingLabel;
+    public String prepLabel;
 
     public static ArrayList<Recipe> getRecipesFromFile(String filename, Context context){
         ArrayList<Recipe> list = new ArrayList<>();
@@ -42,12 +46,41 @@ public class Recipe {
                 recipe.prep = recipes.getJSONObject(i).getString("prepTime");
                 recipe.diet = recipes.getJSONObject(i).getString("dietLabel");
 
+                defineServingLabels(recipe);
+                definePrepLabels(recipe);
+
                 list.add(recipe);
             }
         } catch(JSONException e) {
             e.printStackTrace();
         }
         return list;
+    }
+
+    private static void defineServingLabels(Recipe recipe){
+        if(recipe.servings < 4)
+            recipe.servingLabel = "Less than 4";
+        else if(recipe.servings >= 4 && recipe.servings < 7)
+            recipe.servingLabel = "4-6";
+        else if(recipe.servings >= 7 && recipe.servings < 10)
+            recipe.servingLabel = "7-9";
+        else if(recipe.servings >= 10)
+            recipe.servingLabel = "More than 10";
+    }
+
+    private static void definePrepLabels(Recipe recipe){
+        int number;
+        String value;
+        List<String> timeArr = Arrays.asList((recipe.prep).split(" "));
+        value = timeArr.get(1);
+        number = Integer.parseInt(timeArr.get(0));
+
+        if(value.equals("hour") || value.equals("hours"))
+            recipe.prepLabel = "more than 1 hour";
+        else if(value.equals("minutes") && number <= 30)
+            recipe.prepLabel = "30 minutes or less";
+        else
+            recipe.prepLabel = "less than 1 hour";
     }
 
     private static String loadJsonFromAsset(String filename, Context context) {
