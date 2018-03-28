@@ -1,6 +1,11 @@
 package com.example.miniapp2;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +77,7 @@ public class RecipeAdapter extends BaseAdapter{
         TextView prepTextView = viewHolder.prepTextView;
         Button wantToMakeBtn = viewHolder.wantToMakeBtn;
 
-        Recipe recipe = (Recipe) getItem(i);
+        final Recipe recipe = (Recipe) getItem(i);
 
         titleTextView.setText(recipe.title);
         servingNumTextView.setText(Integer.toString(recipe.servings));
@@ -80,6 +85,32 @@ public class RecipeAdapter extends BaseAdapter{
         prepTextView.setText(recipe.prep);
         wantToMakeBtn.setText(">");
         Picasso.with(mContext).load(recipe.image).into(thumbnail);
+
+        wantToMakeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "channel_ID");
+                builder.setStyle(new NotificationCompat.BigTextStyle(builder)
+                        .bigText("Click here for the recipe!")
+                        .setBigContentTitle("Let's start cooking " + recipe.title)
+                        .setSummaryText("Big summary"))
+                        .setContentTitle("Title")
+                        .setContentText("Summary")
+                        .setSmallIcon(android.R.drawable.sym_def_app_icon)
+                        .setAutoCancel(true);
+
+
+                Uri webpage = Uri.parse(recipe.url);
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+                final PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0,
+                        webIntent, 0);
+
+                builder.setContentIntent(pendingIntent);
+                final NotificationManagerCompat nm = NotificationManagerCompat.from(mContext);
+                nm.notify((int)System.currentTimeMillis(), builder.build());
+
+            }
+        });
 
         return view;
     }
