@@ -73,7 +73,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                selectedDiet = "";
             }
         });
 
@@ -85,7 +85,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                selectedServing = "";
             }
         });
 
@@ -97,7 +97,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                selectedPrep = "";
             }
         });
 

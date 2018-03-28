@@ -43,8 +43,17 @@ public class ResultActivity extends AppCompatActivity {
             diet = tempRecipe.diet;
             prep = tempRecipe.prepLabel;
 
+            if(selectedServing.equals(""))
+                servings = "";
+            if(selectedDiet.equals(""))
+                diet = "";
+            if(selectedPrep.equals(""))
+                prep = "";
+
             if(selectedServing.equals(servings) && selectedDiet.equals(diet) && selectedPrep.equals(prep))
                 recipeList.add(tempRecipe);
+
+
         }
 
         return recipeList;

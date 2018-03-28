@@ -79,7 +79,7 @@ public class RecipeAdapter extends BaseAdapter{
         dietTextView.setText(recipe.diet);
         prepTextView.setText(recipe.prep);
         wantToMakeBtn.setText(">");
-        Picasso.with(mContext).load(recipe.url).into(thumbnail);
+        Picasso.with(mContext).load(recipe.image).into(thumbnail);
 
         return view;
     }
