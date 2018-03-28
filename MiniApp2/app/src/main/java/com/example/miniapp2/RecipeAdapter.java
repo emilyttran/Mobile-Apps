@@ -81,7 +81,7 @@ public class RecipeAdapter extends BaseAdapter{
 
         titleTextView.setText(recipe.title);
         servingNumTextView.setText(Integer.toString(recipe.servings));
-        dietTextView.setText(recipe.diet);
+        dietTextView.setText("  " + recipe.diet);
         prepTextView.setText(recipe.prep);
         wantToMakeBtn.setText(">");
         Picasso.with(mContext).load(recipe.image).into(thumbnail);
@@ -91,9 +91,9 @@ public class RecipeAdapter extends BaseAdapter{
             public void onClick(View view) {
                 final NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, "channel_ID");
                 builder.setStyle(new NotificationCompat.BigTextStyle(builder)
-                        .bigText("Click here for the recipe!")
-                        .setBigContentTitle("Let's start cooking " + recipe.title)
-                        .setSummaryText("Big summary"))
+                        .bigText("Tap for the recipe")
+                        .setBigContentTitle("Let's cook " + recipe.title)
+                        .setSummaryText("Cooking Instructions"))
                         .setContentTitle("Title")
                         .setContentText("Summary")
                         .setSmallIcon(android.R.drawable.sym_def_app_icon)

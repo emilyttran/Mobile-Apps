@@ -8,54 +8,74 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/titleTextView"
+        android:layout_marginStart="13dp"
         android:scaleType="fitCenter"
+        android:layout_marginBottom="7dp"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/thumnail"
-        android:layout_marginStart="23dp"
-        android:layout_toEndOf="@+id/thumnail"
-        android:text="Title" />
+        android:layout_alignStart="@+id/thumnail"
+        android:text="Title"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/servingNumTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/thumnail"
-        android:layout_alignStart="@+id/titleTextView"
-        android:layout_marginBottom="13dp"
-        android:text="Serving Num" />
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignTop="@+id/wantToMakeBtn"
+        android:text="Serving Num"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/prepTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/servingNumTextView"
-        android:layout_alignBottom="@+id/servingNumTextView"
-        android:layout_toStartOf="@+id/wantToMakeBtn"
+        android:layout_alignBottom="@+id/thumnail"
+        android:textStyle="italic"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/thumnail"
         android:text="Prep Time" />
 
     <Button
         android:id="@+id/wantToMakeBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/prepTextView"
+        android:layout_above="@+id/prepTextView"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="13dp" />
+        android:layout_marginEnd="18dp" />
 
     <TextView
         android:id="@+id/dietTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/thumnail"
         android:layout_alignStart="@+id/thumnail"
         android:background="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:text="Diet Label" />
+
+    <TextView
+        android:id="@+id/servingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/servingNumTextView"
+        android:layout_alignStart="@+id/servingNumTextView"
+        android:text="Servings:" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/prepTextView"
+        android:layout_alignStart="@+id/prepTextView"
+        app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
 </RelativeLayout>
